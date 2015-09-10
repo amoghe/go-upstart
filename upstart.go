@@ -2,7 +2,7 @@
 // Note that this is only usable on systems where upstart is the init system.
 package upstart
 
-import "github.com/guelfey/go.dbus"
+import "github.com/godbus/dbus"
 
 // Detect returns true if the system we're running on has an upstart daemon listening on
 // its known address and we're able to communicate with it.
