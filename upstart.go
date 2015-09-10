@@ -2,9 +2,28 @@
 // Note that this is only usable on systems where upstart is the init system.
 package upstart
 
-import (
-	"github.com/guelfey/go.dbus"
-)
+import "github.com/guelfey/go.dbus"
+
+// Detect returns true if the system we're running on has an upstart daemon listening on
+// its known address and we're able to communicate with it.
+func Detect() bool {
+	versionPropPath := "com.ubuntu.Upstart0_6.version"
+
+	// connect to the system bus
+	conn, err := dbus.SystemBus()
+	if err != nil {
+		return false
+	}
+
+	_, err = conn.
+		Object(upstartServiceDBusPath, upstartManagerObject).
+		GetProperty(versionPropPath)
+	if err != nil {
+		return false
+	}
+
+	return true
+}
 
 // StartJob starts the specified job.
 func StartJob(name string) error {
