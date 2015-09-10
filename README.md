@@ -54,3 +54,7 @@ and thats not very interesting.
 ## Contributing
 
 If you feel like this package is missing something or if you find bugs, file an issue (and feel free to throw in a PR)!
+
+## License
+
+This pkg is available under the simplified BSD license. See the LICENSE.txt file.
