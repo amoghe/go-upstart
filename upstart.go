@@ -24,9 +24,9 @@ func RestartJob(name string) error {
 	return job.Restart()
 }
 
-// listJobInstances lists the instances of the specified job. Unless configured to run
+// ListJobInstances lists the instances of the specified job. Unless configured to run
 // as multiple instances, a job has a single instance.
-func listJobInstances(name string) ([]string, error) {
+func ListJobInstances(name string) ([]string, error) {
 	ret := []string{}
 	job := &job{Name: name}
 
